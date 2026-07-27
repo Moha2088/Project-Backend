@@ -2,6 +2,7 @@ package org.example.projectbackend.models.project;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.example.projectbackend.models.organisation.Organisation;
 import org.example.projectbackend.models.project.dtos.ProjectDto;
 import org.example.projectbackend.models.user.User;
 import org.hibernate.annotations.CreationTimestamp;
@@ -29,15 +30,19 @@ public class Project {
     private Date createdAt;
     
     private Date startDate;
-    
+
     private Date endDate;
-    
+
     @Enumerated(EnumType.STRING)
     @Column(length = 8)
     private ProjectState state;
-    
+
     @ManyToMany(mappedBy = "projects")
     private List<User> users;
+    
+    @ManyToOne
+    @JoinColumn(name = "organisation_id", nullable = false)
+    private Organisation organisation;
     
     public ProjectDto toDto() {
         return new ProjectDto(this.id, this.name, this.state, this.createdAt, this.startDate, this.endDate, this.users.stream().map(User::toDto).toList());

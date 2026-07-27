@@ -2,12 +2,16 @@ package org.example.projectbackend.models.user;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.example.projectbackend.models.organisation.Organisation;
 import org.example.projectbackend.models.project.Project;
 import org.example.projectbackend.models.project.dtos.ProjectDto;
 import org.example.projectbackend.models.user.dtos.UserDto;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
@@ -20,14 +24,17 @@ import java.util.List;
         @UniqueConstraint(name = "UniqueEmail",
         columnNames = "email")
 })
-public class User {
+public class User implements UserDetails {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     @Column(length = 20)
-    private String name;
+    private String firstName;
+    
+    @Column(length = 20)
+    private String lastName;
     
     @Column(length = 30)
     private String email;
@@ -35,8 +42,16 @@ public class User {
     @Column(length = 60)
     private String password;
     
+    @Enumerated(EnumType.STRING)
+    @Column(length = 5)
+    private Role role;
+    
     @CreationTimestamp
     private Date createdAt;
+
+    @ManyToOne
+    @JoinColumn(name = "organisation_id", nullable = false)
+    private Organisation organisation;
     
     @ManyToMany
     @JoinTable(
@@ -51,6 +66,16 @@ public class User {
             this.projects = new ArrayList<Project>();
         }
         
-        return new UserDto(this.id, this.name, this.email, this.projects.stream().map(Project::toDto).toList());
+        return new UserDto(this.id, this.firstName, this.lastName, this.email, this.projects.stream().map(Project::toDto).toList());
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of();
+    }
+
+    @Override
+    public String getUsername() {
+        return null;
     }
 }

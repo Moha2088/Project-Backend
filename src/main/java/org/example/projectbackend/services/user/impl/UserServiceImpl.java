@@ -2,6 +2,7 @@ package org.example.projectbackend.services.user.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.example.projectbackend.exceptions.user.UserNotFoundException;
+import org.example.projectbackend.models.user.Role;
 import org.example.projectbackend.models.user.User;
 import org.example.projectbackend.models.user.dtos.CreateUserDto;
 import org.example.projectbackend.models.user.dtos.UserDto;
@@ -22,7 +23,9 @@ public class UserServiceImpl implements UserService {
         String hash = encoder.encode(dto.password());
 
         User user = new User();
-        user.setName(dto.name());
+        user.setFirstName(dto.firstName());
+        user.setLastName(dto.lastName());
+        user.setRole(Role.USER);
         user.setEmail(dto.email());
         user.setPassword(hash);
         

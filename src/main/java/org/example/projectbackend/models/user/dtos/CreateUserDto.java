@@ -1,3 +1,3 @@
 package org.example.projectbackend.models.user.dtos;
 
-public record CreateUserDto(String name, String email, String password) { }
+public record CreateUserDto(String firstName, String lastName, String email, String password) { }
