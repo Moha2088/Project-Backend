@@ -14,10 +14,14 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Service
 @RequiredArgsConstructor
 public class AuthService {
-    
+
     private final UserRepository userRepository;
     private final JwtService jwtService;
     private final PasswordEncoder encoder;
@@ -30,6 +34,8 @@ public class AuthService {
         user.setEmail(dto.getEmail());
         user.setPassword(encoder.encode(dto.getPassword()));
         user.setRole(Role.USER);
+        user.setOrganisation(null);
+        user.setProjects(null);
         
         userRepository.save(user);
         

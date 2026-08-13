@@ -20,6 +20,8 @@ repositories {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-api:2.8.14")
+    implementation("com.scalar.maven:scalar-webmvc:0.6.59")
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("io.jsonwebtoken:jjwt-api:0.13.0")

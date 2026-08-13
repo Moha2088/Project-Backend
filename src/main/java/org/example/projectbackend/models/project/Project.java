@@ -4,8 +4,11 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.example.projectbackend.models.organisation.Organisation;
 import org.example.projectbackend.models.project.dtos.ProjectDto;
+import org.example.projectbackend.models.task.Task;
 import org.example.projectbackend.models.user.User;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import java.util.Date;
 import java.util.List;
 
@@ -29,6 +32,9 @@ public class Project {
     @CreationTimestamp
     private Date createdAt;
     
+    @UpdateTimestamp
+    private Date updatedAt;
+    
     private Date startDate;
 
     private Date endDate;
@@ -39,6 +45,9 @@ public class Project {
 
     @ManyToMany(mappedBy = "projects")
     private List<User> users;
+    
+    @OneToMany(mappedBy = "project")
+    private List<Task> tasks;
     
     @ManyToOne
     @JoinColumn(name = "organisation_id", nullable = false)

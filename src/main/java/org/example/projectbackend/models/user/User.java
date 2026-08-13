@@ -4,12 +4,11 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.example.projectbackend.models.organisation.Organisation;
 import org.example.projectbackend.models.project.Project;
-import org.example.projectbackend.models.project.dtos.ProjectDto;
 import org.example.projectbackend.models.user.dtos.UserDto;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -18,8 +17,11 @@ import java.util.List;
 @Entity
 @Data
 @Table(name = "users", indexes = {
-        @Index(name = "idx_user_name", columnList = "name"),
-        @Index(name = "idx_user_email", columnList = "email")
+        @Index(name = "idx_user_first_name", columnList = "firstName"),
+        @Index(name = "idx_user_last_name", columnList = "lastName"),
+        @Index(name = "idx_user_role", columnList = "role"),
+        @Index(name = "idx_user_email", columnList = "email"),
+        
 }, uniqueConstraints = {
         @UniqueConstraint(name = "UniqueEmail",
         columnNames = "email")
@@ -48,9 +50,12 @@ public class User implements UserDetails {
     
     @CreationTimestamp
     private Date createdAt;
+    
+    @UpdateTimestamp
+    private Date updatedAt;
 
     @ManyToOne
-    @JoinColumn(name = "organisation_id", nullable = false)
+    @JoinColumn(name = "organisation_id")
     private Organisation organisation;
     
     @ManyToMany
@@ -65,8 +70,12 @@ public class User implements UserDetails {
         if (this.projects == null) {
             this.projects = new ArrayList<Project>();
         }
+
+        if (this.organisation == null) {
+            this.organisation = new Organisation();
+        }
         
-        return new UserDto(this.id, this.firstName, this.lastName, this.email, this.projects.stream().map(Project::toDto).toList());
+        return new UserDto(this.id, this.firstName, this.lastName, this.email, this.organisation.toDto(), this.projects.stream().map(Project::toDto).toList());
     }
 
     @Override
@@ -76,6 +85,6 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return null;
+        return this.getEmail();
     }
 }

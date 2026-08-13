@@ -27,12 +27,12 @@ public class UserServiceTests {
 
     @Test
     public void getUser_ShouldReturnUserDto_WhenUserExists() throws UserNotFoundException {
-        CreateUserDto dto = new CreateUserDto("Johndoe", "john@doe.com", "Johndoe123456");
+        CreateUserDto dto = new CreateUserDto("John", "Doe", "john@doe.com","Johndoe123456");
         
         userService.createuser(dto);
         var response = userService.getUserById(1L);
 
-        assertEquals(response.name(), dto.name());
+        assertEquals(response.firstName(), dto.firstName());
         assertEquals(response.email(), dto.email());
     }
     

@@ -28,6 +28,7 @@ public class UserServiceImpl implements UserService {
         user.setRole(Role.USER);
         user.setEmail(dto.email());
         user.setPassword(hash);
+        user.setOrganisation(null);
         
         userRepository.save(user);
     }

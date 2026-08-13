@@ -13,8 +13,7 @@ public class ArchitectureTests {
     static final ArchRule controllerShouldDependOnServiceClasses = classes()
             .that()
             .resideInAPackage("org.example.projectbackend.controller")
-            .should().accessClassesThat().resideInAPackage("org.example.projectbackend.services.user")
-            .orShould().accessClassesThat().resideInAPackage("org.example.projectbackend.services.project")
+            .should().accessClassesThat().resideInAPackage("org.example.projectbackend.services..")
             .because("Controllers should be dependent on the service layer");
     
     @ArchTest

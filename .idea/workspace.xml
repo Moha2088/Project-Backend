@@ -4,7 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb173b5c-c080-4529-b503-0840943b21f0" name="Changes" comment="" />
+    <list default="true" id="cb173b5c-c080-4529-b503-0840943b21f0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/controller/TaskController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/models/task/Task.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/models/task/TaskState.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/models/task/dtos/CreateTaskDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/models/task/dtos/TaskDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/repositories/TaskRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/services/task/TaskService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/services/task/TaskServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.5.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.5.1/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.5.1/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.5.1/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.5.1/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.5.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.5.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.5.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.5.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.5.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.5.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.5.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/config/ApplicationConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/config/ApplicationConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/config/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/config/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/config/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/config/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/models/organisation/Organisation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/models/organisation/Organisation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/models/organisation/dtos/OrganisationDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/models/organisation/dtos/OrganisationDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/models/project/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/models/project/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/models/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/models/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/models/user/dtos/UserDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/models/user/dtos/UserDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/services/auth/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/services/auth/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/services/user/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/projectbackend/services/user/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/projectbackend/architecture/ArchitectureTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/projectbackend/architecture/ArchitectureTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/projectbackend/integration/UserServiceTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/projectbackend/integration/UserServiceTests.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,7 +148,7 @@
       <recent name="org.example.projectbackend.models.project" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ProjectBackendApplication">
+  <component name="RunManager" selected="Gradle.UserServiceTests">
     <configuration name="ArchitectureTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
