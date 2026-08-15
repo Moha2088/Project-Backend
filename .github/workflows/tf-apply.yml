@@ -44,6 +44,12 @@
 
 name: 'Apply Terraform config'
 
+env:
+  CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+  CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+  NEON_API_KEY: ${{ secrets.NEON_API_KEY }}
+  NEON_ORG_ID: ${{ secrets.NEON_ORG_ID }}
+
 on:
   push:
     branches: [main]
@@ -76,4 +82,12 @@ jobs:
         run: cd infra && terraform init
 
       - name: Terraform Apply
-        run: cd infra && terraform apply -auto-approve -input=false
+        run: |
+          cd infra && terraform apply \ 
+            -auto-approve \
+            -input=false \
+            -var "cloudflare_account_id=${{ env.CLOUDFLARE_ACCOUNT_ID }}" \
+            -var "cloudflare_api_token=${{ env.CLOUDFLARE_API_TOKEN }}" \
+            -var "neon_api_key=${{env.NEON_API_KEY}}" \
+            -var "neon_org_id=${{ env.NEON_ORG_ID }}"
+      
