@@ -14,10 +14,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 @Service
 @RequiredArgsConstructor
 public class AuthService {
@@ -38,7 +34,7 @@ public class AuthService {
         user.setProjects(null);
         
         userRepository.save(user);
-        
+
         var token = jwtService.generateToken(user);
         return new AuthenticationResponseDto(token);
     }

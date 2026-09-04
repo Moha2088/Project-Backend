@@ -1,10 +1,12 @@
 package org.example.projectbackend.services.task;
 
 import lombok.RequiredArgsConstructor;
+import org.example.projectbackend.config.CurrentUserProvider;
 import org.example.projectbackend.models.task.Task;
 import org.example.projectbackend.models.task.TaskState;
 import org.example.projectbackend.models.task.dtos.CreateTaskDto;
 import org.example.projectbackend.models.task.dtos.TaskDto;
+import org.example.projectbackend.models.user.User;
 import org.example.projectbackend.repositories.TaskRepository;
 import org.springframework.stereotype.Service;
 
@@ -13,9 +15,13 @@ import org.springframework.stereotype.Service;
 public class TaskServiceImpl implements TaskService {
     
     private final TaskRepository taskRepository;
+    private final CurrentUserProvider userProvider;
 
     @Override
     public void createTask(CreateTaskDto dto) {
+        User user = userProvider.getCurrentUser();
+
+
         Task task = new Task();
         task.setName(dto.name());
         task.setDescription(dto.description());

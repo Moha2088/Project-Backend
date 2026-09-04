@@ -8,6 +8,7 @@ import org.example.projectbackend.models.user.dtos.CreateUserDto;
 import org.example.projectbackend.models.user.dtos.UserDto;
 import org.example.projectbackend.repositories.UserRepository;
 import org.example.projectbackend.services.user.UserService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -38,6 +39,13 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findById(id).orElseThrow(() -> new UserNotFoundException(id));
         return user.toDto();
     }
+
+    @Override
+    public User findByEmail(String userName) {
+        User user = userRepository.findByEmail(userName).orElseThrow();
+        return user;
+    }
+
 
     @Override
     public void deleteUser(Long id) throws UserNotFoundException {

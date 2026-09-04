@@ -9,8 +9,6 @@ terraform {
       source  = "kislerdm/neon"
       version = "0.13.0"
     }
-
-
   }
 }
 
