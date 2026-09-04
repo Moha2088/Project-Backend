@@ -25,6 +25,9 @@ replay_pid*
 
 build
 
+# Local env secrets
+application-local.properties
+
 *.idea
 
 # Terraform

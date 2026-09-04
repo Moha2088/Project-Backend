@@ -1,0 +1,9 @@
+.git
+.gradle
+build
+.idea
+.vscode
+*.iml
+infra/.terraform
+infra/*.tfstate
+infra/*.tfstate.*
